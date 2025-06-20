@@ -1,0 +1,22 @@
+[
+    {
+        "name": "users_data",
+        "source_table": "users"
+    },
+    {
+        "name": "orders_data",
+        "source_table": "orders"
+    },
+    {
+        "name": "products_data",
+        "source_table": "products"
+    },
+    {
+        "name": "products_data_2",
+        "source_table": "products"
+    },
+    {
+        "name": "products_data_3",
+        "source_table": "products"
+    }
+]
