@@ -20,25 +20,6 @@ generated_assets = [
     for config in asset_configs
 ]
 
-# Sensor that can trigger asset materializations on a cadence
-@dg.sensor(
-    asset_selection=dg.AssetSelection.assets(*[asset.key for asset in generated_assets]),
-    minimum_interval_seconds=300  # 5 minutes
-)
-def factory_assets_sensor(context: dg.SensorEvaluationContext):
-    # Logic to determine when to materialize assets
-    # This runs every 5 minutes and can trigger asset materializations
-    
-    should_run = True  # Your condition logic here
-    
-    if should_run:
-        # Materialize all factory-generated assets
-        yield dg.RunRequest(
-            asset_selection=[asset.key for asset in generated_assets]
-        )
-    else:
-        yield dg.SkipReason("Conditions not met for asset materialization")
-
 defs = dg.Definitions(
     assets=generated_assets,
     sensors=[json_file_reload_sensor],
